@@ -7,17 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79809290-2ef9-4a5b-8d1f-8360b22b7abd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/expression/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/expression/expression.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/expression/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proc-macro/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proc-macro/proc-macro.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proc-macro/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proc-macro/tests/basics.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc-macro/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/proc-macro/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc-macro/tests/basics.rs" beforeDir="false" afterPath="$PROJECT_DIR$/proc-macro/tests/basics.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +126,7 @@
       <workItem from="1596868835631" duration="44000" />
       <workItem from="1596868942938" duration="281000" />
       <workItem from="1596869258823" duration="10939000" />
-      <workItem from="1596951152701" duration="2969000" />
+      <workItem from="1596951152701" duration="6426000" />
     </task>
     <task id="LOCAL-00001" summary="Proof-of-concept of expressions">
       <created>1596946393407</created>
@@ -143,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596946393407</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Organizing workspace">
+      <created>1596954330314</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596954330314</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +150,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Proof-of-concept of expressions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proof-of-concept of expressions" />
+    <MESSAGE value="Organizing workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Organizing workspace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="845" y="442" width="538" height="564" key="#Notifications" timestamp="1596952022331">
@@ -166,10 +166,10 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="92" y="92" width="1736" height="976" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1596883362594" />
-    <state x="765" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1596883175976">
+    <state x="765" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1596955737257">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="765" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1596883175976" />
+    <state x="765" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160@0.0.1920.1160" timestamp="1596955737257" />
     <state x="679" y="268" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1596951837631">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -178,38 +178,38 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="690" y="326" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1596952775636" />
-    <state x="563" y="148" key="CommitChangelistDialog2" timestamp="1596946392719">
+    <state x="563" y="148" key="CommitChangelistDialog2" timestamp="1596954329556">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="563" y="148" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1596946392719" />
+    <state x="563" y="148" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1596954329556" />
     <state x="740" y="334" key="FileChooserDialogImpl" timestamp="1596868046566">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="740" y="334" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1596868046566" />
-    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1596954120989">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1596956823080">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1596954120989" />
-    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1596954120988">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1596956823080" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1596956823079">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1596954120988" />
-    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1596954120988">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1596956823079" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1596956823079">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1596954120988" />
-    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1596954120989">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1596956823079" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1596956823080">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1596954120989" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1596956823080" />
     <state x="461" y="224" key="SettingsEditor" timestamp="1596952064380">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="461" y="224" key="SettingsEditor/0.0.1920.1160@0.0.1920.1160" timestamp="1596952064380" />
-    <state x="552" y="312" key="Vcs.Push.Dialog.v2" timestamp="1596946506814">
+    <state x="552" y="312" key="Vcs.Push.Dialog.v2" timestamp="1596954331769">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="312" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1596946506814" />
+    <state x="552" y="312" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1596954331769" />
     <state x="761" y="486" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1596946483973">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
