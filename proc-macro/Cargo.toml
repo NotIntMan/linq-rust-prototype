@@ -1,0 +1,16 @@
+[package]
+name = "linq-first-step-proc-macro"
+version = "0.1.0"
+authors = ["Dmitry Demin <shepardiwe@gmail.com>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+syn = { version = "1.0.38", features = ["full"] }
+quote = "1.0.7"
+linq-first-step-expression = { path = "../expression" }
+proc-macro-error = "1.0.4"

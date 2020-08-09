@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/expression/expression.iml" filepath="$PROJECT_DIR$/expression/expression.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/linq-first-step.iml" filepath="$PROJECT_DIR$/.idea/linq-first-step.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proc-macro/proc-macro.iml" filepath="$PROJECT_DIR$/proc-macro/proc-macro.iml" />
     </modules>
   </component>
 </project>
