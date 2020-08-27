@@ -1,52 +1,14 @@
+mod errors;
+
 use proc_macro::TokenStream;
-use syn::{Expr, parse_macro_input, ExprClosure, Attribute, spanned::Spanned};
+use syn::{Expr, parse, ExprClosure, Attribute, spanned::Spanned};
 use quote::quote;
-use proc_macro_error::{
-    abort,
-    proc_macro_error,
-};
+use proc_macro_error::proc_macro_error;
 use syn::export::Span;
-
-struct StringColumn(Vec<String>);
-
-impl core::fmt::Display for StringColumn {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        for string in &self.0 {
-            writeln!(f, "{}", string)?;
-        }
-        Ok(())
-    }
-}
-
-struct Error {
-    pub span: Span,
-    pub message: String,
-    pub help: StringColumn,
-    pub note: StringColumn,
-}
-
-impl Error {
-    pub fn new(span: Span, message: impl ToString) -> Self {
-        Self {
-            span,
-            message: message.to_string(),
-            help: StringColumn(vec![]),
-            note: StringColumn(vec![]),
-        }
-    }
-
-    #[allow(dead_code)]
-    pub fn with_help(mut self, help: impl ToString) -> Self {
-        self.help.0.push(help.to_string());
-        self
-    }
-
-    #[allow(dead_code)]
-    pub fn with_note(mut self, note: impl ToString) -> Self {
-        self.note.0.push(note.to_string());
-        self
-    }
-}
+use crate::errors::Error;
+use crate::errors::attributes::AttributesNotSupported;
+use crate::errors::expressions::ClosureExpressionExpected;
+use crate::errors::parse_error::ParseError;
 
 fn span_to_attrs(attrs: &[Attribute]) -> Span {
     match attrs {
@@ -56,31 +18,31 @@ fn span_to_attrs(attrs: &[Attribute]) -> Span {
     }
 }
 
-fn transform_closure(closure: ExprClosure) -> Result<TokenStream, Error> {
+pub fn transform_closure(closure: ExprClosure) -> Result<TokenStream, Error> {
     if !closure.attrs.is_empty() {
-        return Err(Error::new(span_to_attrs(&closure.attrs), "closure attributes is not supported in expressions"));
+        return Err(Error::new(&span_to_attrs(&closure.attrs), AttributesNotSupported));
     }
     Ok(quote!(#closure).into())
+}
+
+pub fn transform_expr(input: TokenStream) -> Result<TokenStream, Error> {
+    let expr = match parse::<Expr>(input) {
+        Ok(x) => x,
+        Err(e) => return Err(Error::new(&e.span(), ParseError(e))),
+    };
+    let closure = match expr {
+        Expr::Closure(c) => c,
+        x => return Err(Error::new(&x, ClosureExpressionExpected)),
+    };
+    let result = transform_closure(closure)?;
+    Ok(result)
 }
 
 #[proc_macro_error]
 #[proc_macro]
 pub fn expr(input: TokenStream) -> TokenStream {
-    let expr: Expr = parse_macro_input!(input as Expr);
-    let closure = match expr {
-        Expr::Closure(c) => c,
-        x => abort!(x, "closure expression expected";
-                    help = "Expressions needs to be inside a closure to be unbounded from local context";
-                    note = "Example of usage: expr!(|a| a * 2)"
-        ),
-    };
-    match transform_closure(closure) {
+    match transform_expr(input) {
         Ok(x) => x,
-        Err(e) => match (e.help.0.len(), e.note.0.len()) {
-            (0, 0) => abort!(e.span, e.message),
-            (0, _) => abort!(e.span, e.message; note = e.note),
-            (_, 0) => abort!(e.span, e.message; help = e.help),
-            (_, _) => abort!(e.span, e.message; help = e.help; note = e.note),
-        },
+        Err(e) => e.abort(),
     }
 }
